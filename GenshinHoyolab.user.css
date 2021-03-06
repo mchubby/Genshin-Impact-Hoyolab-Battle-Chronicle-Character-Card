@@ -1,0 +1,267 @@
+/* ==UserStyle==
+@name			Genshin Impact Hoyolab Battle Chronicle Character Card
+@namespace		mchubby
+@version		1.0.0
+@description	Card styling for the Genshin Impact character showcase page.
+@author			mchubby
+@license		CC-BY-SA-4.0
+@homepageURL	https://github.com/mchubby/Genshin-Impact-Hoyolab-Battle-Chronicle-Character-Card/
+@updateURL		https://raw.githubusercontent.com/mchubby/Genshin-Impact-Hoyolab-Battle-Chronicle-Character-Card/master/GenshinHoyolab.user.css
+@preprocessor	uso
+@var text		goog_font_head_name	"Google Typeface for Heading" "RocknRoll One"
+@var text		goog_font_head_size	"Heading Font Size (Can be %, px, etc.)" 1.5rem
+@var text		goog_font_infobox_name	"Google Typeface for Infobox" "Courgette"
+@var text		goog_font_infobox_size	"Infobox Font Size (Can be %, px, etc.)" 12pt
+@var number		infobox_min_width	"Infobox Min. Width (px)" 350px
+@var number		infobox_max_width	"Infobox Max. Width (px)" 380px
+==/UserStyle== */
+
+@import url('https://fonts.googleapis.com/css?family=/*[[goog_font_head_name]]*/');
+@import url('https://fonts.googleapis.com/css?family=/*[[goog_font_infobox_name]]*/');
+
+:root {
+    --title-font: '/*[[goog_font_head_name]]*/';
+    --title-font-size: /*[[goog_font_head_size]]*/;
+    --infobox-font: '/*[[goog_font_infobox_name]]*/';
+    --infobox-font-size: /*[[goog_font_infobox_size]]*/;
+    --char-bg-left: 80px;
+    /* used as horizontal positioning anchor; default is 50% */
+    --infobox-left: calc(var(--char-bg-left) + 330px);
+    --infobox-min-width: /*[[infobox_min_width]]*/px;
+    --infobox-max-width: /*[[infobox_max_width]]*/px;
+}
+
+#pc-ys-layout {
+    max-width: calc(var(--infobox-left) + var(--infobox-max-width) + 60px);  /* change this if you tweak the infobox */
+}
+
+/* Note: hover to pause */
+@keyframes randomWall {
+    0% {
+        background-image: url(https://preview.redd.it/ion6uxb8e9v51.png?width=2548&format=png&auto=webp&s=d740819b3d914d6a854ff0df5f106087d084afa3);
+        /* https://www.pixiv.net/users/12890391 */
+        background-position: -598px -76px;
+    }
+    10% {
+        background-image: url(https://live.staticflickr.com/65535/50703949697_46de4bb9c4_k.jpg);
+        background-position: -283px -400px;
+    }
+    20% {
+        background-image: url(https://upload-os-bbs.mihoyo.com/upload/2021/02/24/95779026/2d0399a616092590d7c9608edc84d327_8774403500093850076.jpg?x-oss-process=image/resize,s_1240/quality,q_80/format,jpg);
+        /* https://www.hoyolab.com/genshin/article/210107 */
+        background-position: -73px -130px;
+    }
+    30% {
+        background-image: url(https://live.staticflickr.com/65535/50703862411_bd4c543fbb_h.jpg);
+        background-position: -59px -372px;
+    }
+    40% {
+        background-image: url(https://i.redd.it/i3ywbdy4ejr51.jpg);
+        /* https://www.pixiv.net/en/users/16998874 */
+        background-position: -192px -178px;
+    }
+    50% {
+        background-image: url(https://live.staticflickr.com/65535/50703862521_1798bdca0f_k.jpg);
+        background-position: -296px -464px;
+    }
+    60% {
+        background-image: url(https://live.staticflickr.com/65535/50703949642_32eb7b0a44_k.jpg);
+        background-position: 0 -69px;
+    }
+    70% {
+        background-image: url(https://i.redd.it/tczrl42lgsr51.png);
+        background-position-y: -249px;
+    }
+    80% {
+        background-image: url(https://uploadstatic-sea.mihoyo.com/contentweb/20200807/2020080718411869987.png);
+        background-position: 0 -33px;
+    }
+}
+
+.pc-role-container {
+    padding-right: 200px;
+    animation: randomWall 25s steps(1, end) infinite;
+}
+
+.pc-role-container:hover {
+    animation-play-state: paused;
+}
+
+.pc-role-container .role-layout--container {
+    background-color: unset;
+    background-position-x: var(--char-bg-left);
+}
+
+/* char name */
+.pc-role-swiper-layout .pagination .name {
+    font-family: var(--title-font), sans-serif !important;
+    font-size: var(--title-font-size) !important;
+    color: white !important;
+}
+
+.pc-role-swiper-layout .pagination .level,
+.pc-role-swiper-layout .pagination .fav {
+    color: gold !important;
+}
+
+/* avatar */
+.swiper-container-initialized,
+.swiper-wrapper {
+    position: revert !important;
+    /* remove relative */
+    overflow: visible;
+    transform: none !important;
+    /* disallow swiping so it's the same viewport */
+}
+
+.swiper-slide {
+    max-width: 98px;
+    /* fix consequence of larger layout */
+}
+
+.swiper-slide-active {
+    position: absolute;
+    top: 180px;
+    left: calc(var(--char-bg-left) - 50px) !important;
+    z-index: 12;
+}
+
+.pc-role-container .view-box,
+.fate-view-box {
+    position: absolute !important;
+    top: 50px;
+    left: var(--infobox-left);
+    min-width: var(--infobox-min-width);
+    max-width: var(--infobox-max-width) !important;
+    padding: 0 !important;
+}
+
+.pc-role-container .view-box .tip,
+.fate-view-box .tip {
+    display: none;
+}
+
+.pc-role-container .view-box .header,
+.fate-view-box .header {
+    display: none;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.role-layout--container .weapon-block {
+    left: calc(var(--char-bg-left) + 120px) !important;
+}
+
+.role-layout--container .fate-block {
+    top: calc(40%) !important;
+    left: calc(var(--char-bg-left) + 160px) !important;
+}
+
+
+.pc-role-container .view-box .main,
+.fate-view-box .main {
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    content: '';
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    min-height: 80px;
+    border-radius: 6px;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+}
+
+.pc-role-container .view-box .main .info .name span.text,
+.fate-view-box .main .name {
+    font-family: var(--title-font), sans-serif !important;
+    font-size: var(--title-font-size) !important;
+    color: white !important;
+}
+
+@keyframes pulse {
+    100% {
+        box-shadow: 0 1px 5px 0 rgba(255, 192, 48, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(255, 192, 48, 0);
+    }
+    0% {
+        box-shadow: 0 1px 5px 2px rgba(255, 192, 48, 1);
+    }
+}
+
+.pc-role-container .view-box .fate-icon-item,
+.fate-view-box .fate-icon-item {
+    background: #000;
+}
+.pc-role-container .view-box .fate-icon-item:not(.lock),
+.fate-view-box .fate-icon-item:not(.lock) {
+    animation: pulse 2s infinite;
+    border: 2px solid #fc3;
+    box-shadow: 0 1px 5px 2px rgba(197, 167, 77, 1);
+}
+
+.pc-role-container .view-box .inner,
+.fate-view-box .fate-icon-item .inner {
+    border: none;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+
+@keyframes animateBg {
+    0% {
+        background-position: 0 100%;
+    }
+    100% {
+        background-position: 100% 0;
+    }
+}
+
+.pc-role-container .view-box .desc,
+.fate-view-box .desc {
+    padding: 12px 15px 12px;
+    font-family: var(--infobox-font), sans-serif !important;
+    font-size: var(--infobox-font-size) !important;
+    line-height: 1.1em !important;
+    /* Fallback */
+    background-color: #CA4246;
+    background-image: linear-gradient(45deg,
+    #A7489B 16.666%,
+    #476098 16.666%,
+    #476098 33.333%,
+    #8B9862 33.333%,
+    #8B9862 50%,
+    #F18F43 50%,
+    #F18F43 66.666%,
+    #E16541 66.666%,
+    #E16541 83.333%,
+    #CA4246 83.333%);
+    background-size: 400%;
+    background-repeat: repeat;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: animateBg 2s alternate infinite;
+    animation-timing-function: cubic-bezier(0.1, -0.6, 0.2, 0);
+}
+
+
