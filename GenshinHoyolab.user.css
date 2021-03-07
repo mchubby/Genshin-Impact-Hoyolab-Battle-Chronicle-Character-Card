@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			Genshin Impact Hoyolab Battle Chronicle Character Card
 @namespace		mchubby
-@version		1.0.2
+@version		1.0.3
 @description	Card styling for the Genshin Impact character showcase page.
 @author			mchubby
 @license		CC-BY-SA-4.0
@@ -16,7 +16,7 @@
 @var number		infobox_max_width	"Infobox Max. Width (px)" 380px
 ==/UserStyle== */
 
-@-moz-document url-prefix("https://webstatic-sea.hoyolab.com/app/community-game-records-sea/") {
+@-moz-document url-prefix("https://webstatic-sea.hoyolab.com/app/community-game-records-sea/index.html") {
 
 @import url('https://fonts.googleapis.com/css?family=/*[[goog_font_head_name]]*/');
 @import url('https://fonts.googleapis.com/css?family=/*[[goog_font_infobox_name]]*/');
