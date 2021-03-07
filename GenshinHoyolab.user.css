@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name			Genshin Impact Hoyolab Battle Chronicle Character Card
 @namespace		mchubby
-@version		1.0.0
+@version		1.0.1
 @description	Card styling for the Genshin Impact character showcase page.
 @author			mchubby
 @license		CC-BY-SA-4.0
@@ -258,6 +258,7 @@
     #CA4246 83.333%);
     background-size: 400%;
     background-repeat: repeat;
+    -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: animateBg 2s alternate infinite;
