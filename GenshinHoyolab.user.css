@@ -16,9 +16,10 @@
 @var number		infobox_max_width	"Infobox Max. Width (px)" 380px
 ==/UserStyle== */
 
+@-moz-document url-prefix("https://webstatic-sea.hoyolab.com/app/community-game-records-sea/") {
+
 @import url('https://fonts.googleapis.com/css?family=/*[[goog_font_head_name]]*/');
 @import url('https://fonts.googleapis.com/css?family=/*[[goog_font_infobox_name]]*/');
-@-moz-document url-prefix("https://webstatic-sea.hoyolab.com/app/community-game-records-sea/")
 
 :root {
     --title-font: '/*[[goog_font_head_name]]*/';
@@ -267,3 +268,4 @@
 }
 
 
+} /* -moz-document */
